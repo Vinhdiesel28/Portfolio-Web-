@@ -1,0 +1,263 @@
+:root {
+    /* Bảng màu Nữ tính Chuyên nghiệp (Pink/Rose Gold Palette) */
+    --primary-color: #be4d71; /* Hồng đậm sang trọng (Dùng cho tiêu đề, text chính) */
+    --secondary-color: #d67593; /* Hồng trung tính */
+    --accent-color: #ff8fa3; /* Hồng phấn sáng (Dùng cho icon, điểm nhấn) */
+    --text-color: #5a4a4f; /* Màu chữ xám nâu ấm áp, không dùng đen tuyền */
+    --bg-color: #fff5f7; /* Nền hồng rất nhạt */
+    --card-bg: #ffffff; /* Nền trắng cho các khối */
+    
+    /* Font chữ mới hiện đại, mềm mại hơn */
+    --font-main: 'Poppins', sans-serif;
+    --border-radius-soft: 16px; /* Bo góc mềm mại */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* Hero Section - Gradient hồng */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 10px 25px rgba(190, 77, 113, 0.2);
+}
+
+.name {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.job-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.95;
+    margin-bottom: 25px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    font-size: 1rem;
+}
+
+.contact-info a, .contact-info span {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 30px;
+}
+
+.contact-info a:hover {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Section Styles */
+.section {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--border-radius-soft);
+    box-shadow: 0 8px 20px rgba(190, 77, 113, 0.08);
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 143, 163, 0.1);
+}
+
+.section-title {
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Tạo đường gạch chân trang trí dưới tiêu đề */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-card h3 i {
+    color: var(--accent-color);
+}
+
+.skill-card ul {
+    list-style: none;
+}
+
+.skill-card li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Custom bullet point hình trái tim nhỏ hoặc chấm tròn hồng */
+.skill-card li::before {
+    content: "🌸"; /* Hoặc dùng "•" nếu muốn đơn giản */
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* --- NEW: Project Grid with Images --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.project-card {
+    background: #fff;
+    border-radius: var(--border-radius-soft);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #ffecf0;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(190, 77, 113, 0.15);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px; /* Chiều cao cố định cho ảnh */
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05); /* Hiệu ứng zoom nhẹ khi di chuột */
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.project-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-tags li {
+    background-color: #ffecf0;
+    color: var(--primary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Education Item */
+.education-item h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.education-item h3 i {
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    margin-top: 40px;
+}
